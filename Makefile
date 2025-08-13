@@ -1,13 +1,13 @@
 TARGET=initx
 
 GCC=gcc
-CFLAGS= -Wall -Wextra -O2
+CFLAGS= -Wall -Wextra -O2 -I.
 
 OBJDIR=.out
 BINDIR=.app
 
-SRCS=initx.c
-OBJS=$(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
+SRCS=initx.c $(wildcard builtin/*.c)
+OBJS = $(patsubst %.c,.out/%.o,$(SRCS))
 
 all: $(BINDIR)/$(TARGET)
 
@@ -16,11 +16,11 @@ $(BINDIR)/$(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $(OBJS)
 
 $(OBJDIR)/%.o: %.c
-	mkdir -p $(OBJDIR)
+	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-initx:
-	$(BINDIR)/$(TARGET)
+run: $(BINDIR)/$(TARGET)
+	$< $(ARGS)
 	
 clean:
 	rm -rf $(OBJDIR) $(BINDIR)
