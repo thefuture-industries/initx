@@ -11,6 +11,11 @@ struct cmd_struct
     
 // };
 
+static struct cmd_struct *get_buildin(const char *command)
+{
+    return NULL;
+}
+
 int main(int argc, const char **argv)
 {
     const char *cmd;
