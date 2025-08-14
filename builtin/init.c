@@ -18,8 +18,8 @@ int is_supported(const char *value, const char *list[]) {
 
 int cmd_init(int argc, const char **argv) 
 {
-    const char *language = argv[2];
-    const char *project_name = argv[3];
+    const char *language = argv[1];
+    const char *project_name = argv[2];
 
     if (!is_supported(language, supported_languages)) {
         fprintf(stderr, "error: unsupported language: '%s'\n", language);

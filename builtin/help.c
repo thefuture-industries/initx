@@ -4,7 +4,7 @@
 
 const char *initx_usage = 
     "usage: initx [-v | --version] [-h | --help] [-l | --languages]\n"
-    "             [-s | --scopes] [--directory=<current | new>]\n"
+    "             [-s | --scopes] [--directory='current | new']\n"
     "             <command> [<args>]\n";
 
 const char *initx_work_arch =
