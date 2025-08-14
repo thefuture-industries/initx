@@ -6,7 +6,7 @@ CFLAGS= -Wall -Wextra -O2 -I.
 OBJDIR=.out
 BINDIR=.app
 
-SRCS=initx.c $(wildcard builtin/*.c)
+SRCS=$(shell find . -name '*.c')
 OBJS = $(patsubst %.c,.out/%.o,$(SRCS))
 
 all: $(BINDIR)/$(TARGET)

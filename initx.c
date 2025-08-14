@@ -11,42 +11,44 @@ struct cmd_struct
     int (*fn)(int, const char **);
 };
 
-static int handle_options(int *argc, const char ***argv)
+char *handle_options(int argc, const char **argv)
 {
-    while (*argc > 0)
+    char *cmd = NULL;
+
+    if (!strcmp("--help", argv[0]) || !strcmp("-h", argv[0])) 
     {
-        const char *cmd = (*argv)[0];
-        if (cmd[0] != '-')
-        {
-            break;
-        }
-
-        if (!strcmp(cmd, "--help") || !strcmp(cmd, "-h") ||
-            !strcmp(cmd, "--version") || !strcmp(cmd, "-v"))
-                break;
-
-        if (!strcmp(cmd, "--directory")) 
-        {
-            exit(0);
-        }
-
-        (*argv)++;
-		(*argc)--;
+        cmd = "help";
+    }
+    else if (!strcmp("--version", argv[0]) || !strcmp("-v", argv[0]))
+    {
+        cmd = "version";
+    } 
+    else if (!strcmp("--scopes", argv[0]) || !strcmp("-s", argv[0]))
+    {
+        cmd = "scopes";
+    }
+    else if (!strcmp("--languages", argv[0]) || !strcmp("-l", argv[0]))
+    {
+        cmd = "languages";
     }
 
-    return 0;
+
+    return cmd;
 }
 
 static struct cmd_struct commands[] = {
     {"init", cmd_init},
     {"help", cmd_help},
+    {"languages", languages_cmd},
 };
 
 static struct cmd_struct *get_builtin(const char *command)
 {
-    for (size_t i = 0, n = ARRAY_SIZE(commands); i < n; i++) {
+    for (size_t i = 0, n = ARRAY_SIZE(commands); i < n; i++) 
+    {
         struct cmd_struct *p = commands + i;
-        if (!strcmp(command, p->cmd)) {
+        if (!strcmp(command, p->cmd)) 
+        {
             return p;
         }
     }
@@ -60,7 +62,8 @@ static int handle_builtin(int argc, const char **argv)
     const char *cmd = argv[0];
 
     builtin = get_builtin(cmd);
-    if (!builtin) {
+    if (!builtin) 
+    {
         printf("initx: '%s' is not a initx command. See 'initx --help'.\n", cmd);
         return 1;
     }
@@ -74,7 +77,6 @@ int main(int argc, const char **argv)
 
     argv++;
     argc--;
-    handle_options(&argc, &argv);
 
     if (argc == 0)
     {
@@ -83,24 +85,15 @@ int main(int argc, const char **argv)
         argc = 1;
     }
 
-    if (!strcmp("--help", argv[0]) || !strcmp("-h", argv[0])) 
+    cmd = handle_options(argc, argv);
+    if (cmd)
     {
-        argv[0] = "help";
+        argv[0] = cmd;
     }
-    else if (!strcmp("--version", argv[0]) || !strcmp("-v", argv[0]))
+    else
     {
-        argv[0] = "version";
-    } 
-    else if (!strcmp("--scopes", argv[0]) || !strcmp("-s", argv[0]))
-    {
-        argv[0] = "scopes";
+        cmd = argv[0];
     }
-    else if (!strcmp("--languages", argv[0]) || !strcmp("-l", argv[0]))
-    {
-        argv[0] = "languages";
-    }
-
-    cmd = argv[0];
 
     handle_builtin(argc, argv);
 

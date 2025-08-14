@@ -1,10 +1,10 @@
+#include "language.h"
 #include "builtin.h"
 #include "array.h"
 
 #include <stdio.h>
 #include <string.h>
 
-const char *supported_languages[] = {"golang", "c"};
 const char *supported_scopes[] = {"backend"};
 
 int is_supported(const char *value, const char *list[]) {

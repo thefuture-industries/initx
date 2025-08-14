@@ -1,12 +1,15 @@
 #include "language.h"
-#include "array.h"
 
 #include <stdio.h>
 
-int show_list_lang()
+const char *supported_languages[] = {"golang", "c"};
+
+int show_list_lang(char *custom_out)
 {
-    for (size_t i = 0, n = ARRAY_SIZE(supported_languages); i < n; i++)
+    for (size_t i = 0, n = sizeof(supported_languages)/sizeof(supported_languages[0]); i < n; i++)
     {
-        printf("%s\n", supported_languages[i]);
+        printf("%s%s\n", custom_out, supported_languages[i]);
     }
+
+    return 0;
 }
