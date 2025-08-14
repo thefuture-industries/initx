@@ -2,9 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include "array.h"
 #include "builtin.h"
-
-#define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
 
 struct cmd_struct 
 {
@@ -45,7 +44,7 @@ static struct cmd_struct commands[] = {
 
 static struct cmd_struct *get_builtin(const char *command)
 {
-    for (size_t i = 0; i < ARRAY_SIZE(commands); i++) {
+    for (size_t i = 0, n = ARRAY_SIZE(commands); i < n; i++) {
         struct cmd_struct *p = commands + i;
         if (!strcmp(command, p->cmd)) {
             return p;
