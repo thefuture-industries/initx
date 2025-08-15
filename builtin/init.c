@@ -1,4 +1,4 @@
-#include "language.h"
+#include "sup.h"
 #include "builtin.h"
 #include "array.h"
 
@@ -19,8 +19,40 @@ int is_supported(const char *value, const char *list[]) {
 
 int cmd_init(int argc, const char **argv) 
 {
-    const char *language = argv[1];
-    const char *project_name = argv[2];
+    argv++;
+    argc--;
+
+    if (argc < 2)
+    {
+        fprintf(stderr, "hint: Maybe you wanted to say 'initx <language> <project_name> [scope]'?\n");
+        return 1;
+    }
+
+    const char *language = argv[0];
+    const char *project_name = argv[1];
+    const char *scope = (argc >= 3 && strncmp(argv[2], "--directory=", 12) != 0) ? argv[2] : "console";
+    const char *version = get_version(language);
+
+    const char *directory = project_name;
+
+    if (argc >= 3 && !strncmp(argv[argc-1], "directory=", 12))
+    {
+        const char *mode = argv[argc-1] + 12;
+
+        if (!strcmp("current", mode))
+        {
+            directory = ".";
+        }
+        else if (!strcmp("new", mode))
+        {
+            directory = project_name;
+        }
+        else
+        {
+            fprintf(stderr, "error: unknown directory mode '%s' (use 'new' or 'current')\n", mode);
+            return 1;
+        }
+    }
 
     if (!is_supported(language, supported_languages)) {
         fprintf(stderr, "error: unsupported language: '%s'\n", language);
