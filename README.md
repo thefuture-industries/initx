@@ -24,21 +24,12 @@ Go to the root of the project and run the command.
 
 ## Supported languages
 
-<p align="center">
+<p>
   <a href="https://golang.org/">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" width="48" height="48" alt="Go" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" width="40" height="40" alt="Go" />
   </a>
-  <a href="https://www.typescriptlang.org/">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="48" height="48" alt="TypeScript" />
-  </a>
-  <a href="https://www.scala-lang.org/">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scala/scala-original.svg" width="48" height="48" alt="Scala" />
-  </a>
-  <a href="https://learn.microsoft.com/en-us/dotnet/csharp/">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" width="48" height="48" alt="C#" />
-  </a>
-  <a href="https://www.postgresql.org/">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="48" height="48" alt="PostgreSQL" />
+  <a href="https://en.wikipedia.org/wiki/C_(programming_language)">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="40" height="40" alt="C" />
   </a>
 </p>
 
