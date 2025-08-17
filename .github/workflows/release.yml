@@ -212,6 +212,8 @@ jobs:
 
                       [©thefuture-industries](https://github.com/thefuture-industries)
                   files: |
+                        *.deb
+                        *.tar.gz
 
             - name: Create new branch for next version
               run: |
