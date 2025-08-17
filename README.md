@@ -24,14 +24,10 @@ Go to the root of the project and run the command.
 
 ## Supported languages
 
-<p>
-  <a href="https://golang.org/">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" width="40" height="40" alt="Go" />
-  </a>
-  <a href="https://en.wikipedia.org/wiki/C_(programming_language)">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="40" height="40" alt="C" />
-  </a>
-</p>
+| Language | Icon |
+|----------|-------|
+| [Go](https://go.dev/) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" width="40" alt="Go" /> |
+| [C](https://en.wikipedia.org/wiki/C_(programming_language)) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="40" alt="C" /> |
 
 ## Usage
 
