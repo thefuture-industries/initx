@@ -1,6 +1,7 @@
 #include "fs.h"
 
 #include <stdio.h>
+#include <errno.h>
 
 #ifdef _WIN32
     #include <direct.h>
@@ -11,11 +12,25 @@
 
 void create_dir(const char *path)
 {
+    int rc;
+
 #ifdef _WIN32
-    _mkdir(path);
+    rc = _mkdir(path);
 #else
-    mkdir(path, 0755);
+    rc = mkdir(path, 0755);
 #endif
+
+    if (rc == -1)
+    {
+        if (errno == EEXIST)
+        {
+            return;
+        }
+        else
+        {
+            perror("mkdir");
+        }
+    }
 }
 
 void write_file(const char *path, const char *content) 

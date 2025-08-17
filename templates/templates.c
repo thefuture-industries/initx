@@ -1,46 +1,24 @@
 #include "templates.h"
-#include "fs.h"
+#include "templ_golang.h"
 
 #include <stdio.h>
+#include <string.h>
 
-void template_golang(base_template_struct *s)
+int init_template(const base_template_struct *s)
 {
-    // const path[256];
+    if (!strcmp("golang", s->language))
+    {
+        templ_golang(s);
+    }
+    else if (!strcmp("c", s->language))
+    {
+        //
+    }
+    else
+    {
+        fprintf(stderr, "error: unsupported language: '%s'\n", s->language);
+        return 1;
+    }
 
-    // create_dir(s->directory);
-
-    // sprintf(path, sizeof(path), "%s/cmd", s->directory);
-    // create_dir(path);
-
-    // sprintf(path, sizeof(path), "%s/config", s->directory);
-    // create_dir(path);
-
-    // sprintf(path, sizeof(path), "%s/handler", s->directory);
-    // create_dir(path);
-
-    // sprintf(path, sizeof(path), "%s/infra", s->directory);
-    // create_dir(path);
-
-    // sprintf(path, sizeof(path), "%s/middleware", s->directory);
-    // create_dir(path);
-
-    // sprintf(path, sizeof(path), "%s/pkg", s->directory);
-    // create_dir(path);
-
-    // sprintf(path, sizeof(path), "%s/tests", s->directory);
-    // create_dir(path);
-
-    // sprintf(path, sizeof(path), "%s/util", s->directory);
-    // create_dir(path);
-
-    // // go.mod
-    // sprintf(path, sizeof(path), "%s/go.mod", s->directory);
-    // char go_mod[512];
-    // sprintf(go_mod, sizeof(go_mod), "module %s\n\ngo 1.20\n", s->project_name);
-    // write_file(s->directory, go_mod);
-}
-
-int initx_golang_console(char *directory)
-{
     return 0;
 }
