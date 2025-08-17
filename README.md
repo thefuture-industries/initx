@@ -22,13 +22,6 @@ Go to the root of the project and run the command.
 
 ## `SOON`
 
-## Supported languages
-
-| Language | Icon |
-|----------|-------|
-| [Go](https://go.dev/) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" width="40" alt="Go" /> |
-| [C](https://en.wikipedia.org/wiki/C_(programming_language)) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="40" alt="C" /> |
-
 ## Usage
 
 ```bash
@@ -39,3 +32,10 @@ usage: initx [-v | --version] [-h | --help] [-l | --languages]
 working with architecture creation:
    initx [language] [project-name] [scope]
 ```
+
+## Supported languages
+
+| Language | Icon |
+|----------|-------|
+| [Go](https://go.dev/) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" width="40" alt="Go" /> |
+| [C](https://en.wikipedia.org/wiki/C_(programming_language)) | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="40" alt="C" /> |
